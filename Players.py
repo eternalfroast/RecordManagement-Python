@@ -57,4 +57,41 @@ def readFile():
         weightList.append(round(float(weight))) #updating the weight list
     playerFile.close()  #closing the file after the completion. It is a must.Otherwise program will not run properly.
 
+def inputPlayerID(message):
+  while True:
+    try:
+       userInput = input(message)
+       if (userInput.isdigit() and (len(userInput) == 9) and int(userInput)> 0):
+           return userInput 
+           break
+            
+       else:
+           print("Error!! Please enter the valid formatted ID. It should be digits, length of ID should be 9 and should not be negative value. Example: 000000001")
+           continue
+
+           
+    except ValueError:
+       print("Please check the input")
+       continue
+
+
+#this function is used to validate the age of player making sure that it meets certain criteria
+def inputPlayerAge(message):
+
+  #this loop runs until the criteria matches
+  while True:
+    try:
+       userInput = input(message)
+       if (userInput.isdigit() and (len(userInput) == 2) and int(userInput)> 20 and int(userInput)< 50):
+           return userInput       
+           break
+       else:
+           print("Error!! Please enter the valid formatted ID. Player age should be between 20 to 50 . Example: 25")
+           continue
+
+           
+    except ValueError:
+       print("Please check the input")
+       continue
+
 
