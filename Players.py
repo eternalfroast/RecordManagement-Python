@@ -186,4 +186,38 @@ def searchPlayerDetail(playerID):
     playerFile.close() #the file is closed after the intended purpose
    
 
+#this function is used to display the chart to the user
+    
+def display(attributeList, attributeName, units):
+
+    import matplotlib.pyplot as plot #importing the matplot library to work with the graph
+
+    #this presents the  title of the graph
+    plot.title("Histogram of " + attributeName)
+    
+    plot.xlabel(attributeName + ' ' + units) #label in the x-axis
+    plot.ylabel("Freqqquecy") #label in the y-axis
+    plot.hist(attributeList, bins = (range(min(attributeList), max(attributeList)+1,10)))  #this is used to modify the graph
+    plot.show() # used for presenting the graph to the user
+
+
+    
+def visualizeData():
+
+    #taking the user input for the selection purpose
+    userInput = input("Please chose one of the following\n1. Age    2. Height    3. Weight")
+    if (userInput == "1"):
+        print("Displaying the ages of all the players")
+        display(ageList, "Ages", "(years)")
+        
+    elif (userInput == "2"):
+        print("Displaying the height of all the players")
+        display(heightList, "Height", "(meter)")
+    elif (userInput == "3"):
+        print("Displaying the weight of all the players")
+        display(weightList, "Weight", "(kilograms)")
+
+    else:
+        print("The option you have selected is not in the option. Please choose again")
+
 
